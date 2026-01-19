@@ -1,0 +1,17 @@
+{
+  "AWSEBDockerrunVersion": 2,
+  "containerDefinitions": [
+    {
+      "name": "app",
+      "image": "516965226585.dkr.ecr.us-east-1.amazonaws.com/lks-ecr-iqbal",
+      "essential": true,
+      "memory": 512,
+      "portMappings": [
+        {
+          "containerPort": 5000,
+          "hostPort": 5000
+        }
+      ]
+    }
+  ]
+}

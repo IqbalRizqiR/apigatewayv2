@@ -16,7 +16,7 @@ AWS_REGION = os.getenv("AWS_REGION")
 S3_BUCKET = os.getenv("S3_BUCKET_NAME")
 API_URL = os.environ["API_GATEWAY_URL"]
 
-
+#trying
 
 s3_client = boto3.client(
     "s3",

@@ -14,9 +14,9 @@ AWS_SECRET_ACCESS_KEY = os.getenv("AWS_SECRET_ACCESS_KEY")
 AWS_SESSION_TOKEN = os.getenv("AWS_SESSION_TOKEN")
 AWS_REGION = os.getenv("AWS_REGION")
 S3_BUCKET = os.getenv("S3_BUCKET_NAME")
-API_URL = os.getenv("API_GATEWAY_URL")
+API_URL = os.environ("API_GATEWAY_URL")
 
-print(f"Using API URL: {API_URL}")  # Debugging log
+
 
 s3_client = boto3.client(
     "s3",
@@ -28,6 +28,7 @@ s3_client = boto3.client(
 
 @app.route("/")
 def index():
+    print(f"Using API URL: {API_URL}")  # Debugging log
     response = requests.get("https://{API_URL}")
     users = response.json()
     return render_template("index.html", users=users, s3_bucket=f"https://{S3_BUCKET}.s3.{AWS_REGION}.amazonaws.com/")

@@ -16,8 +16,9 @@ AWS_REGION = os.environ["AWS_REGION"]
 S3_BUCKET = os.environ["S3_BUCKET_NAME"]
 API_URL = os.environ["API_GATEWAY_URL"]
 
+
 #trying
-#yayayayaya
+#yayayayayaa
 
 s3_client = boto3.client(
     "s3",
@@ -49,6 +50,7 @@ def add_user():
     if check_response.status_code == 409:  # Jika email sudah ada
         print("❌ Email already exists, stopping process")  # Debugging log
         return jsonify({"error": "Email already exists"}), 409
+    
 
     # 2️⃣ Jika email belum ada, lanjut upload gambar
     image_url = ""
@@ -62,6 +64,7 @@ def add_user():
 
     # 3️⃣ Simpan user ke database
     user_data = {
+        
         "name": name,
         "email": email,
         "institution": institution,

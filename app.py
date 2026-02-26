@@ -107,6 +107,13 @@ def update_user(user_id):
         return jsonify({"message": "Used sudah diupdate", "data": response.json()})
     else:
         return jsonify({"error": "Failed to update user"}), response.status_code
+@app.route("/debug-url")
+def debug_url():
+    return {
+        "api_url_configured": API_URL,
+        "region": AWS_REGION,
+        "s3_bucket": S3_BUCKET
+    }
 
 if __name__ == "__main__":
     app.run(debug=True, host='0.0.0.0')
